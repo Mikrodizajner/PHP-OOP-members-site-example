@@ -1,0 +1,1 @@
+Use rawurlencode at error_log

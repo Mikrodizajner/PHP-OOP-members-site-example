@@ -1,0 +1,1 @@
+<h1>Your query is fucked up!</h1>

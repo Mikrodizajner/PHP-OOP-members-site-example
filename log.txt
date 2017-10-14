@@ -1,1 +1,3 @@
-database configuration
+C:/xampp/htdocs/PHP-members-site/public/PHP-OOP-members-site-example
+
+database configuration change name

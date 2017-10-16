@@ -36,8 +36,8 @@
 			$_SESSION["error"][] = "Please enter a valid email address!";
 		}//validate email
 
-		if (strlen($_POST["password1"]) > 30) {
-			$_SESSION["error"][] = "Passwords can have maximum 30 characters";
+		if (strlen($_POST["password1"]) > 36) {
+			$_SESSION["error"][] = "Passwords can have maximum 36 characters";
 		}//check if password1 has more than 30 characters
 
 		if ($_POST["password1"] != $_POST["password2"]) {

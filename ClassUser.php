@@ -149,7 +149,7 @@
 		}//end function logout
 
 
-		public function emailPass($user){
+		public function emailPass($email){
 			$mysqli = new mysqli(DBHOST,DBUSER,DBPASS,DB);
 			if ($mysqli->connect_errno) {
 				error_log("Can't connect to MySQL:".$mysqli->connect_error);
@@ -157,8 +157,8 @@
 			}
 
 			//first, lookup the user to see if they exist
-			$safeUser 	= $mysqli->real_escape_string($user);
-			$query 		= "SELECT member_id, member_email FROM members WHERE member_email ='{$safeUser}'";
+			$safeEmail 	= $mysqli->real_escape_string($email);
+			$query 		= "SELECT member_id, member_email FROM members WHERE member_email ='{$safeEmail}'";
 
 			if (!$result = $mysqli->query($query)) {
 				$_SESSION['error'][] = "Uknown error!";

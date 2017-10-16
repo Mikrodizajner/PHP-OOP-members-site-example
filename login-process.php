@@ -39,7 +39,7 @@ if (count($_SESSION['error']) > 0) {
 		unset($_SESSION['formAttempt']);
 		die(header("Location:authenticated.php"));
 	}else{
-		$_SESSION['error'][] = "There was a problem with your username or password!";
+		$_SESSION['error'][] = 'There was a problem with your username or password! If Your\'e not registered please <a href="register.php"></a>';
 		die(header("Location:login.php"));
 	}
 }

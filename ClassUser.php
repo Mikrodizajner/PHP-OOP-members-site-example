@@ -12,8 +12,8 @@
 		public $zip;
 		public $phone;
 		public $phoneType;
-		public $isLoggedIn = false;
-		public $errorType = "fatal";
+		public $isLoggedIn 	= false;
+		public $errorType 	= "fatal";
 		
 		function __construct()
 		{
@@ -27,7 +27,7 @@
 
 		}//end construct
 
-		public function authenticate($user, $pass){
+		public function authenticate($email, $pass){
 
 			if (session_id() == "") {
 				session_start();
@@ -44,21 +44,21 @@
 				return false;
 			}
 
-			$safeUser = $mysqli->real_escape_string($user);
+			$safeEmail 			= $mysqli->real_escape_string($email);
 
-			$incomingPassword = $mysqli->real_escape_string($pass);
+			$incomingPassword 	= $mysqli->real_escape_string($pass);
 
-			$query ="SELECT * FROM members WHERE member_email = '{$safeUser}'";
+			$query ="SELECT * FROM members WHERE member_email = '{$safeEmail}'";
 
 			if (!$result = $mysqli->query($query)) {
-				error_log("Can't retrieve account for {$user}");
+				error_log("Can't retrieve account for {$email}");
 			}
 			//will be only one row so no while loop is needed
 			$row 		= $result->fetch_assoc();
 			$dbPassword = $row['member_pass'];
 
 			if (crypt($incomingPassword, $dbPassword) != $dbPassword) {
-				error_log("Passwords for {$user} don't match");
+				error_log("Passwords for {$email} don't match");
 				return false;
 			}
 

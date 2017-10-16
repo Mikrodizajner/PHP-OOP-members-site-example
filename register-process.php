@@ -179,7 +179,7 @@
 			$phoneType = "";
 		}
 
-		$query = "INSERT INTO customer (email,create_date,password,last_name,first_name,street,city,state,zip,phone,phone_type) VALUES ('{$email}', NOW(), '{$password}', '{$lastName}', '{$firstName}', '{$street}', '{$city}', '{$state}', '{$zip}', '{$phone}', '{$phoneType}')";
+		$query = "INSERT INTO members (member_email, create_date, member_pass, member_las_name, member_fir_name, member_address, member_city, member_state, member_zip, member_phone, member_phone_type) VALUES ('{$email}', NOW(), '{$password}', '{$lastName}', '{$firstName}', '{$street}', '{$city}', '{$state}', '{$zip}', '{$phone}', '{$phoneType}')";
 
 		if (!$query) {
 			header("Location:404.php");

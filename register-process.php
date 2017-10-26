@@ -13,6 +13,7 @@
 		if (isset($_SESSION["error"])) {
 			unset($_SESSION["error"]);
 		}
+
 		$_SESSION["error"] = array();
 		$required =  array("fname", "lname", "email", "password1", "password2");
 
@@ -63,6 +64,7 @@
 					$validPhoneTypes = array("work", "home");
 					if (!in_array($_POST["phonetype"], $validPhoneTypes)) {
 					$_SESSION["error"][] = "Please choose a valid phone type!";
+					}
 				}
 			}
 
@@ -174,7 +176,7 @@
 		}
 
 		if (isset($_POST["phonetype"])) {
-			$phoneType = $mysqli->real_escape_string($_POST["phoneType"]);
+			$phoneType = $mysqli->real_escape_string($_POST["phonetype"]);
 		}else{
 			$phoneType = "";
 		}

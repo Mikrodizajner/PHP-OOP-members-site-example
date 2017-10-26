@@ -52,6 +52,7 @@
 					<!--submit-->
 					<input type="submit" name="Sbt" id="Sbt" value="SUBMIT">
 					<br>
+					<a href="register.php">Register</a><br>
 					<a href="emailpass.php">Forgot Your password?</a>
 				</fieldset>
 			</div>

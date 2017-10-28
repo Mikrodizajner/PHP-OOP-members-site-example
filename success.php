@@ -11,7 +11,7 @@
 			<h3>Thank You for registering!</h3>
 		</div>
 		<div>
-			<a href="login.php">click here to login!</a>
+			Now <a href="login.php">click here to login!</a>
 		</div>
 	</body>
 </html>

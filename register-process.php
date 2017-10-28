@@ -113,7 +113,7 @@
 		$mysqli = new mysqli(DBHOST, DBUSER, DBPASS, DB);
 
 		if (!$mysqli) {
-			echo "Šipak!";
+			echo "Error!";
 		}
 		/*
 		if ($mysqli->connect_errno()) {
@@ -185,10 +185,10 @@
 
 		if (!$query) {
 			header("Location:404.php");
+		}else{
+			$result = $mysqli->query($query);
+			header("Location:success.php");
 		}
-
-		$result = $mysqli->query($query);
-
 
 		/*
 		if ($mysqli->query($query)) {

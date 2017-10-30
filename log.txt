@@ -1,3 +1,5 @@
 C:/xampp/htdocs/PHP-members-site/public/PHP-OOP-members-site-example
 
-database configuration change name
+fix login process!
+add cookies!
+fix sessions!

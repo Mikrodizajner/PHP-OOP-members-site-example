@@ -1,6 +1,7 @@
 <?php
 
-require_once('functions.inc');
+require_once('functions.php');
+require_once('ClassUser.php');
 
 //prevent access if if the form was not submitted
 if (!isset($_POST['Sbt'])) {
@@ -15,17 +16,17 @@ if (isset($_SESSION['error'])) {
 
 $_SESSION['error'] = array();
 
-$required = array("email", "password1");
+$required = array("Email", "Password");
 
 //check required fields
 foreach ($required as $requiredField) {
 	if (!isset($_POST[$requiredField]) || $_POST[$requiredField] == "") {
 		
-		$_SESSION['error'][] = $requiredField ."is required!";
+		$_SESSION['error'][] = $requiredField ." is required!";
 	}
 }
 
-if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+if (!filter_var($_POST['Email'], FILTER_VALIDATE_EMAIL)) {
 	$_SESSION['error'][] = "Invalid e-mail address!";
 }
 
@@ -35,11 +36,11 @@ if (count($_SESSION['error']) > 0) {
 
 	$user = new User;
 
-	if ($user->authenticate($_POST['email'], $_POST['password1'])) {
+	if ($user->authenticate($_POST['Email'], $_POST['Password'])) {
 		unset($_SESSION['formAttempt']);
-		die(header("Location:authenticated.php"));
+		header("Location:authenticated.php");
 	}else{
-		$_SESSION['error'][] = 'There was a problem with your username or password! If Your\'e not registered please <a href="register.php"></a>';
+		$_SESSION['error'][] = 'There was a problem with your username or password! If You are not registered please <a href="register.php">register</a> ASAP!';
 		die(header("Location:login.php"));
 	}
 }

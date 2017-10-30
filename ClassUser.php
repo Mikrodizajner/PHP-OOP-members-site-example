@@ -15,23 +15,18 @@
 		public $isLoggedIn 	= false;
 		public $errorType 	= "fatal";
 		
+		/*
 		function __construct()
 		{
-			if (session_id() == "") {
-				session_start();
-			}
 
 			if (isset($_SESSION['isLoggedIn']) && $_SESSION['isLoggedIn'] == true) {
 				$this->_initUser();
 			}
 
 		}//end construct
+		*/
 
 		public function authenticate($email, $pass){
-
-			if (session_id() == "") {
-				session_start();
-			}
 
 			$_SESSION['isLoggedIn'] = false;
 			$this->isLoggedIn 		= false;
@@ -44,11 +39,9 @@
 				return false;
 			}
 
-			$safeEmail 			= $mysqli->real_escape_string($email);
-
 			$incomingPassword 	= $mysqli->real_escape_string($pass);
 
-			$query ="SELECT * FROM members WHERE member_email = '{$safeEmail}'";
+			$query ="SELECT * FROM members WHERE member_email = '{$email}'";
 
 			if (!$result = $mysqli->query($query)) {
 				error_log("Can't retrieve account for {$email}");
@@ -58,34 +51,33 @@
 			$dbPassword = $row['member_pass'];
 
 			if (crypt($incomingPassword, $dbPassword) != $dbPassword) {
+
 				error_log("Passwords for {$email} don't match");
 				return false;
+
+			}else{
+
+				$this->id 			= $row['member_id'];
+				$this->email 		= $row['member_email'];
+				$this->firstName 	= $row['member_fir_name'];
+				$this->lastName		= $row['member_las_name'];
+				$this->address 		= $row['member_address'];
+				$this->city			= $row['member_city'];
+				$this->zip 			= $row['member_zip'];
+				$this->state 		= $row['member_state'];
+				$this->phone 		= $row['member_phone'];
+				$this->phoneType 	= $row['member_phone_type'];
+				$this->isLoggedIn 	= true;
+
+				$this->_initUser();
+
+				return true;
 			}
-
-
-			$this->id 			= $row['member_id'];
-			$this->email 		= $row['member_email'];
-			$this->firstName 	= $row['member_fir_name'];
-			$this->lastName		= $row['member_las_name'];
-			$this->address 		= $row['member_address'];
-			$this->city			= $row['member_city'];
-			$this->zip 			= $row['member_zip'];
-			$this->state 		= $row['member_state'];
-			$this->phone 		= $row['member_phone'];
-			$this->phoneType 	= $row['member_phone_type'];
-			$this->isLoggedIn 	= true;
-
-			$this->_setSession();
-
-			return true;
 
 		}//end function authenticate
 
+		/*
 		private function _setSession(){
-
-			if (session_id() == "") {
-				session_start();
-			}
 
 				$_SESSION['id']			= $this->id;
 				$_SESSION['email']		= $this->email;
@@ -100,12 +92,9 @@
 				$_SESSION['isLoggedIn']	= $this->isLoggedIn;
 
 		}//end function set session
+		*/
 
 		private function _initUser(){
-
-			if (session_id() == "") {
-				session_start();
-			}
 
 			$this->id 			= $_SESSION['id'];
 			$this->email 		= $_SESSION['email'];
@@ -122,11 +111,8 @@
 		}//end function initUser
 
 		public function logout(){
-			$this->isLoggedIn = false;
 
-			if (session_id() == "") {
-				session_start();
-			}
+			$this->isLoggedIn = false;
 
 			$_SESSION['isLoggedIn'] = false;
 
@@ -134,8 +120,6 @@
 				$_SESSION[$key] = "";
 				unset($_SESSION[$key]);
 			}
-
-			$_SESSION = array();
 
 			if (ini_get("session.use_cookies")) {
 				
@@ -150,6 +134,7 @@
 
 
 		public function emailPass($email){
+
 			$mysqli = new mysqli(DBHOST,DBUSER,DBPASS,DB);
 			if ($mysqli->connect_errno) {
 				error_log("Can't connect to MySQL:".$mysqli->connect_error);
@@ -157,8 +142,7 @@
 			}
 
 			//first, lookup the user to see if they exist
-			$safeEmail 	= $mysqli->real_escape_string($email);
-			$query 		= "SELECT member_id, member_email FROM members WHERE member_email ='{$safeEmail}'";
+			$query 		= "SELECT member_id, member_email FROM members WHERE member_email ='{$email}'";
 
 			if (!$result = $mysqli->query($query)) {
 				$_SESSION['error'][] = "Uknown error!";
@@ -170,8 +154,8 @@
 				return false;
 			}
 
-			$row = $result->fetch_assoc();
-			$id = $row['id'];
+			$row 	= $result->fetch_assoc();
+			$id 	= $row['id'];
 
 			$hash 			= uniqid("", TRUE);
 			$safeHash 		= $mysqli->real_escape_string($hash);
@@ -183,10 +167,10 @@
 				return false;
 			}
 
-			$urlHash = urlencode($hash);
-			$site = "http://localhost";
-			$resetPage = "/reset.php";
-			$fullUrl = $site.$resetPage."?user=".$urlHash;
+			$urlHash 	= urlencode($hash);
+			$site 		= "http://localhost";
+			$resetPage 	= "/reset.php";
+			$fullUrl 	= $site.$resetPage."?user=".$urlHash;
 
 			//set up things related to the email
 			$to 		= $row['email'];
@@ -201,6 +185,7 @@
 		}//end function emailPass
 
 		public function validateReset($formInfo){
+
 			$pass1 = $formInfo['password1'];
 			$pass2 = $formInfo['password2'];
 
@@ -248,6 +233,7 @@
 
 
 		private function _resetPass($id,$pass){
+
 			$mysqli = new mysqli(DBHOST,DBUSER,DBPASS,DB);
 
 			if ($mysqli->connect_errno) {

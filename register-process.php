@@ -1,6 +1,6 @@
 <?php
 
-	require_once("functions.inc");
+	require_once("functions.php");
 
 	//prevent access if form is not submited
 	if (!isset($_POST["Sbt"])) {

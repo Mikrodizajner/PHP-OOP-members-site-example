@@ -44,7 +44,7 @@
 			$query ="SELECT * FROM members WHERE member_email = '{$email}'";
 
 			if (!$result = $mysqli->query($query)) {
-				error_log("Can't retrieve account for {$email}");
+				error_log("Can't retrieve account for {$email}!");
 			}
 			//will be only one row so no while loop is needed
 			$row 		= $result->fetch_assoc();
@@ -52,7 +52,7 @@
 
 			if (crypt($incomingPassword, $dbPassword) != $dbPassword) {
 
-				error_log("Passwords for {$email} don't match");
+				error_log("Passwords for {$email} don't match!");
 				return false;
 
 			}else{
@@ -70,9 +70,9 @@
 				$this->isLoggedIn 	= true;
 
 				$this->_initUser();
-
-				return true;
 			}
+
+			return true;
 
 		}//end function authenticate
 

@@ -1,6 +1,6 @@
 <?php
 
-	require_once("functions.inc"); 
+	require_once("functions.php"); 
 	/*
 	if(!isset($_COOKIE[$cookie_name])) {
     	echo "Cookie named '" . $cookie_name . "' is not set!";
@@ -9,9 +9,12 @@
     	echo "Value is: " . $_COOKIE[$cookie_name];
 	}
 	*/
-	if ($_SESSION["log"] = true) {
+	if ($_SESSION["isLoggedIn"] = true) {
+
 		header("Location:authenticated.php");
+		
 	}else{
+
 		header("Location:login.php");
 	}
 

@@ -13,27 +13,26 @@ if (!$user->isLoggedIn || $user->isLoggedIn == false) {
 
 }
 */
-
 ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<title>
-			Welcome <?php echo $user->firstName; ?>
+			Welcome <?php echo $_SESSION['firstName']; ?>
 		</title>
 	</head>
 	<body>
 		<div>
 			<?php
 
-			echo "Hello ". $user->firstName."!<br>";
-			echo "Your last Name is". $user->lastName."<br>";
-			echo "Your address is". $user->address."<br>";
-			echo "City where You live is". $user->city."<br>";
-			echo "Your ZIP code is". $user->zip."<br>";
-			echo "Your state is". $user->state."<br>";
-			echo "Your phone number is". $user->phone."<br>";
+			echo "Hello ".$_SESSION['firstName']."!<br>";
+			echo "Your last Name is ".$_SESSION['lastName']."<br>";
+			echo "Your address is ".$_SESSION['address']."<br>";
+			echo "City where You live is ".$_SESSION['city']."<br>";
+			echo "Your ZIP code is ".$_SESSION['zip']."<br>";
+			echo "Your state is ".$_SESSION['state']."<br>";
+			echo "Your phone number is ".$_SESSION['phone']."<br>";
 
 			?>
 		</div>

@@ -38,6 +38,19 @@ if (count($_SESSION['error']) > 0) {
 
 	if ($user->authenticate($_POST['Email'], $_POST['Password'])) {
 		unset($_SESSION['formAttempt']);
+
+		$_SESSION['id']			=$user->id;
+		$_SESSION['email']		=$user->email;
+		$_SESSION['firstName']	=$user->firstName;
+		$_SESSION['lastName']	=$user->lastName;
+		$_SESSION['address']	=$user->address;
+		$_SESSION['city']		=$user->city;
+		$_SESSION['zip']		=$user->zip;
+		$_SESSION['state']		=$user->state;
+		$_SESSION['phone']		=$user->phone;
+		$_SESSION['phoneType']	=$user->phoneType; 
+		$_SESSION['isLoggedIn']	=true;
+
 		header("Location:authenticated.php");
 	}else{
 		$_SESSION['error'][] = 'There was a problem with your username or password! If You are not registered please <a href="register.php">register</a> ASAP!';

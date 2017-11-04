@@ -12,7 +12,6 @@
 		public $zip;
 		public $phone;
 		public $phoneType;
-		public $isLoggedIn 	= false;
 		public $errorType 	= "fatal";
 		
 		/*
@@ -27,9 +26,6 @@
 		*/
 
 		public function authenticate($email, $pass){
-
-			$_SESSION['isLoggedIn'] = false;
-			$this->isLoggedIn 		= false;
 
 			$mysqli = new mysqli(DBHOST, DBUSER, DBPASS, DB);
 
@@ -69,7 +65,6 @@
 				$this->phoneType 	= $row['member_phone_type'];
 				$this->isLoggedIn 	= true;
 
-				$this->_initUser();
 			}
 
 			return true;
@@ -92,7 +87,7 @@
 				$_SESSION['isLoggedIn']	= $this->isLoggedIn;
 
 		}//end function set session
-		*/
+		
 
 		private function _initUser(){
 
@@ -109,6 +104,7 @@
 			$this->isLoggedIn 	= $_SESSION['isLoggedIn'];
 
 		}//end function initUser
+		*/
 
 		public function logout(){
 

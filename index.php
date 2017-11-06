@@ -9,7 +9,7 @@
     	echo "Value is: " . $_COOKIE[$cookie_name];
 	}
 	*/
-	if ($_SESSION["isLoggedIn"] = true) {
+	if ($cookie) {
 
 		header("Location:authenticated.php");
 		
@@ -17,5 +17,6 @@
 
 		header("Location:login.php");
 	}
+
 
 ?>

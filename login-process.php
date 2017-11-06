@@ -51,7 +51,10 @@ if (count($_SESSION['error']) > 0) {
 		$_SESSION['phoneType']	=$user->phoneType; 
 		$_SESSION['isLoggedIn']	=true;
 
+		$cookie = setcookie("kookie[".$user->firstName."]", $user->id, time()+60*60*30); 
+
 		header("Location:authenticated.php");
+
 	}else{
 		$_SESSION['error'][] = 'There was a problem with your username or password! If You are not registered please <a href="register.php">register</a> ASAP!';
 		die(header("Location:login.php"));

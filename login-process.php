@@ -51,7 +51,7 @@ if (count($_SESSION['error']) > 0) {
 		$_SESSION['phoneType']	=$user->phoneType; 
 		$_SESSION['isLoggedIn']	=true;
 
-		$cookie = setcookie("kookie[".$user->firstName."]", $user->id, time()+60*60*30); 
+		$cookie = setcookie("kookie[".$user->firstName."]", $user->firstName, time()+60*60*30); 
 
 		header("Location:authenticated.php");
 

@@ -3,11 +3,9 @@
 require_once("functions.php");
 require_once("ClassUser.php");			
 
-if (isset($_COOKIE['kookie'])) {
+if (isset($_COOKIE['kookie']) && $_SESSION['isLoggedIn'] == true) {
    	foreach ($_COOKIE['kookie'] as $name) {
       	$name 	= htmlspecialchars($name);
-      	echo '<h2>Hello $name!</h2> <br />\n';
-      	echo '<a href="logout.php">Logout</a>';
    	}
 }else{
 

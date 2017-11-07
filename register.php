@@ -3,7 +3,7 @@
 	require_once("functions.php"); 
 
 ?>
-<!DOCTYPE>
+<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
@@ -33,6 +33,11 @@
 			form input{
 				width: 60%;
 				margin-left: 10px;
+				border: 0;
+				background-color:#ffd633; 
+				color:#000;
+				font-size: 16px;
+				height: auto;
 			}
 
 			form input[type=submit]{
@@ -44,7 +49,6 @@
 				font-weight: bold;
 				background-color: #3333cc;
 				cursor: pointer;
-				border: 0;
 				height: 34px;
 				text-align: center;
 			}
@@ -55,6 +59,10 @@
 			
 			form #formLinks a{
 				text-decoration: none;
+			}
+
+			#formLinks a:hover{
+				text-decoration: underline;
 			}
 
 			form select option{
@@ -183,7 +191,11 @@
 					<input class="radioBtn" type="radio" id="home" name="phonetype" value="home">
 					<label class="radioBtn" for="home">Home</label><br>
 					<span class="errorFeedback errorSpan phoneTypeErr" id="phonetypeError">Please choose one option!</span><br>
-
+					<p id="formLinks">
+						<a href="login.php">Login</a><br>
+						<a href="emailpass.php">Forgot Your password?</a><br>
+						<a href="authenticated.php">Profile</a>
+					</p>
 					<!--submit-->
 					<input type="submit" name="Sbt" id="Sbt" value="Register">
 

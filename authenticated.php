@@ -10,7 +10,19 @@ if (isset($_COOKIE['kookie']) && $_SESSION['isLoggedIn'] == true) {
 }else{
 
 	die(header("Location:login.php"));
+
+	if ($_SESSION['error']) {
+		unset($_SESSION['error']);
+	}
 }
+
+/*
+if () {
+	
+	$_SESSION['error'] = "You have to login first!";
+
+}
+*/
 
 ?>
 <!DOCTYPE html>
@@ -45,10 +57,29 @@ if (isset($_COOKIE['kookie']) && $_SESSION['isLoggedIn'] == true) {
 
 		#logoutDiv a{
 			color: #ff0000;
+			text-decoration: none;
+		}
+
+		#logoutDiv a:hover{
+			text-decoration: underline;
 		}
 
 		h3{
 			color: #009900;
+		}
+
+		#formLinks{
+			margin: 0px auto;
+			padding: 12px;
+			width: 400px;
+		}
+				
+		#formLinks a{
+			text-decoration: none;
+		}
+
+		#formLinks a:hover{
+			text-decoration: underline;
 		}
 	</style>
 	<body>
@@ -67,6 +98,11 @@ if (isset($_COOKIE['kookie']) && $_SESSION['isLoggedIn'] == true) {
 			<a href="logout.php">
 				<strong>Click here to logout!</strong>
 			</a>
+			<hr>
+		</div>
+		<div id="formLinks">
+			<a href="login.php">Login page</a><br>
+			<a href="register.php">Register page</a>
 		</div>
 	</body>
 </html>

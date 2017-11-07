@@ -34,6 +34,11 @@
 				form input{
 					width: 60%;
 					margin-left: 10px;
+					border: 0;
+					background-color:#ffd633; 
+					color:#000;
+					font-size: 16px;
+					height: auto;
 				}
 
 				form input[type=submit]{
@@ -45,7 +50,6 @@
 					font-weight: bold;
 					background-color: #3333cc;
 					cursor: pointer;
-					border: 0;
 					height: 34px;
 					text-align: center;
 				}
@@ -56,6 +60,10 @@
 				
 				form #formLinks a{
 					text-decoration: none;
+				}
+
+				#formLinks a:hover{
+					text-decoration: underline;
 				}
 
 				form select option{
@@ -101,7 +109,7 @@
 
 					unset($_SESSION['formAttempt']);
 
-					echo "Errors encountered!<br>";
+					echo "Errors have been encountered!<br>";
 
 					foreach ($_SESSION['error'] as $error) {
 						
@@ -113,28 +121,29 @@
 
 		<div id="formDiv">
 			<form id="loginForm" method="POST" action="login-process.php">
-					<fieldset>
-						<legend>
-							Login
-						</legend>
-						<!--email input-->
-						<p><label for="email">Email:<span class="redd">*</span></label></p><br>
-						<input type="email" id="Email" name="Email">
-						<span class="errorFeedback errorSpan" id="emailError">Email is required!</span><br>
-						<!--password input-->
-						<p><label for="password">Password:<span class="redd">*</span></label></p><br>
-						<input type="password" id="Password" name="Password">
-						<span class="errorFeedback errorSpan" id="passError">Password is required!</span>
-						<br>
-						<br>
-						<!--submit-->
-						<input type="submit" name="Sbt" id="Sbt" value="Login">
-						<br>
-						<p id="formLinks">
+				<fieldset>
+					<legend>
+						Login
+					</legend>
+					<!--email input-->
+					<p><label for="email">Email:<span class="redd">*</span></label></p><br>
+					<input type="email" id="Email" name="Email">
+					<span class="errorFeedback errorSpan" id="emailError">Email is required!</span><br>
+					<!--password input-->
+					<p><label for="password">Password:<span class="redd">*</span></label></p><br>
+					<input type="password" id="Password" name="Password">
+					<span class="errorFeedback errorSpan" id="passError">Password is required!</span>
+					<br>
+					<br>
+					<!--submit-->
+					<input type="submit" name="Sbt" id="Sbt" value="Login">
+					<br>
+					<p id="formLinks">
 						<a href="register.php">Register</a><br>
-						<a href="emailpass.php">Forgot Your password?</a>
-						</p>
-					</fieldset>
+						<a href="emailpass.php">Forgot Your password?</a><br>
+						<a href="authenticated.php">Profile</a>
+					</p>
+				</fieldset>
 			</form>
 		</div>
 

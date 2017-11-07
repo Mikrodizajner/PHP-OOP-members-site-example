@@ -108,7 +108,7 @@
 
 					unset($_SESSION['formAttempt']);
 
-					echo "Errors have been encountered:<br>";
+					echo "Errors have been encountered:<br><br>";
 
 					foreach ($_SESSION['error'] as $error) {
 						

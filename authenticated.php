@@ -11,7 +11,6 @@ if (isset($_COOKIE['kookie']) && $_SESSION['isLoggedIn'] == true) {
 
 }else{
 
-
 	die(header("Location:login.php"));
 
 }

@@ -85,7 +85,6 @@
 			}
 			
 			#errorDiv{
-				color: #ff0000;
 				padding: 12px;
 				margin: 10px;
 			}

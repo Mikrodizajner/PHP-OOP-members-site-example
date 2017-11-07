@@ -1,5 +1,1 @@
 C:/xampp/htdocs/PHP-members-site/public/PHP-OOP-members-site-example
-
-fix login process!
-add cookies!
-fix sessions!

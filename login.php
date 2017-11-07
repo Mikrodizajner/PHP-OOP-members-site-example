@@ -86,7 +86,6 @@
 				}
 				
 				#errorDiv{
-					color: #ff0000;
 					padding: 12px;
 					margin: 10px;
 				}
@@ -109,7 +108,7 @@
 
 					unset($_SESSION['formAttempt']);
 
-					echo "Errors have been encountered!<br>";
+					echo "Errors have been encountered:<br>";
 
 					foreach ($_SESSION['error'] as $error) {
 						
@@ -141,7 +140,7 @@
 					<p id="formLinks">
 						<a href="register.php">Register</a><br>
 						<a href="emailpass.php">Forgot Your password?</a><br>
-						<a href="authenticated.php">Profile</a>
+						<a href="authenticated.php" id="profileLink" name="profileLink">Profile</a>
 					</p>
 				</fieldset>
 			</form>

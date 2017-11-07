@@ -4,25 +4,17 @@ require_once("functions.php");
 require_once("ClassUser.php");			
 
 if (isset($_COOKIE['kookie']) && $_SESSION['isLoggedIn'] == true) {
+
    	foreach ($_COOKIE['kookie'] as $name) {
       	$name 	= htmlspecialchars($name);
    	}
+
 }else{
+
 
 	die(header("Location:login.php"));
 
-	if ($_SESSION['error']) {
-		unset($_SESSION['error']);
-	}
 }
-
-/*
-if () {
-	
-	$_SESSION['error'] = "You have to login first!";
-
-}
-*/
 
 ?>
 <!DOCTYPE html>

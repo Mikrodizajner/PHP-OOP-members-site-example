@@ -8,12 +8,106 @@
 	<head>
 		<meta charset="UTF-8">
 
-		<link rel="stylesheet" type="text/css" href="form.css">
+		<title>Register form</title>
+		<style type="text/css">
+			body{
+				font-family: tahoma, sans-serif;
+			}
 
-		<title>Register</title>
+			.redd{
+				color: #ff0000;
+			}
+
+			h3{
+				color: #009900;
+			}
+			
+			form label{
+				margin-left: 10px;
+				float: left;
+				text-align: right;
+				display: block;
+				color: #009900;
+			}
+			
+			form input{
+				width: 60%;
+				margin-left: 10px;
+			}
+
+			form input[type=submit]{
+				width: 20%;
+				margin-left: 10px;
+				border-radius: 4px;
+				-webkit-border-radius:4px;
+				color: #fff;
+				font-weight: bold;
+				background-color: #3333cc;
+				cursor: pointer;
+				border: 0;
+				height: 34px;
+				text-align: center;
+			}
+
+			form #formLinks{
+				margin-left: 10px;
+			}
+			
+			form #formLinks a{
+				text-decoration: none;
+			}
+
+			form select option{
+				width: 6em;
+			}
+			
+			#submit{
+				margin-top: 2em;
+				float: right;
+			}
+			
+			.errorClass{
+				background-color: #CC6666;
+			}
+
+			#formDiv{
+				margin: 24px;
+				width: 60%;
+				clear: both;
+			}
+			
+			#errorDiv{
+				color: #ff0000;
+				padding: 12px;
+				margin: 10px;
+			}
+			
+			.errorFeedback{
+				visibility: hidden;
+			}
+			
+			.phoneTypeError{
+				margin-left: 1.2em;
+				padding: 0.1em;
+				background-color: #CC6666;
+			}
+		</style>
 	</head>
 	<body>
 
+		<div id="errorDiv">
+			<?php
+				if (isset($_SESSION['error']) && isset($_SESSION['formAttempt'])) {
+					unset($_SESSION['formAttempt']);
+						echo "Errors encountered:<br><br>";
+					foreach ($_SESSION['error'] as $error) {
+						echo $error."<br>";
+					}//end foreach
+				}//end if
+			?>
+		</div>
+
+		<div id="formDiv">
 		<form id="userForm" method="POST" action="register-process.php">
 			<div>
 				<fieldset>
@@ -32,36 +126,36 @@
 							}//end if
 						?>
 					</div>
-					<hr>
+					
 					<!--first name input-->
-					<label for="firstname">First name:<span class="redd">*</span></label>
+					<p><label for="firstname">First name:<span class="redd">*</span></label></p><br>
 					<input type="text" id="fname" name="fname">
 					<span class="errorFeedback errorSpan" id="fnameError">First name is required!</span><br>
 					<!--last name input-->
-					<label for="lastname">Last name:<span class="redd">*</span></label>
+					<p><label for="lastname">Last name:<span class="redd">*</span></label></p><br>
 					<input type="text" id="lname" name="lname">
 					<span class="errorFeedback errorSpan" id="lnameError">Last name is required!</span><br>
 					<!--email input-->
-					<label for="email">Email:<span class="redd">*</span></label>
+					<p><label for="email">Email:<span class="redd">*</span></label></p><br>
 					<input type="email" id="email" name="email">
 					<span class="errorFeedback errorSpan" id="emailError">Email is required!</span><br>
 					<!--password input-->
-					<label for="password">Password:<span class="redd">*</span></label>
+					<p><label for="password">Password:<span class="redd">*</span></label></p><br>
 					<input type="password" id="password1" name="password1">
 					<span class="errorFeedback errorSpan" id="passError1">Password is required!</span><br>
 					<!--password check-->
-					<label for="passwordVerify">Verify Password:<span class="redd">*</span></label>
+					<p><label for="passwordVerify">Verify Password:<span class="redd">*</span></label></p><br>
 					<input type="password" id="password2" name="password2">
 					<span class="errorFeedback errorSpan" id="passError2">Password's don't match!</span><br>
 					<!--address input-->
-					<label for="address">Address:</label>
+					<p><label for="address">Address:</label></p><br>
 					<input type="text" id="addr" name="addr"><br>
 					<!--city input-->
-					<label for="city">City:</label>
+					<p><label for="city">City:</label></p><br>
 					<input type="text" id="city" name="city"><br><br>
 
 					<!--state input-->
-					<label for="state">State:</label>
+					<p><label for="state">State:</label></p><br>
 					<select id="state" name="state">
 						<option></option>
 						<option value="AL">Alabama</option>
@@ -76,14 +170,14 @@
 					</select>
 					<br><br>
 					<!--zip number input-->
-					<label for="zip">ZIP:</label>
+					<p><label for="zip">ZIP:</label></p><br>
 					<input type="text" id="zip" name="zip"><br>
 					<!--phone number input-->
-					<label for="phone">Phone number:</label>
+					<p><label for="phone">Phone number:</label></p><br>
 					<input type="text" id="phone" name="phone">
 					<span class="errorFeedback errorSpan" id="phoneError">Format must be xxx-xxx-xxxx!</span><br><br>
 					<!--work phone input-->
-					<label for="work">Number type:</label><br><br>
+					<p><label for="work">Number type:</label></p><br><br>
 					<input class="radioBtn" type="radio" id="work" name="phonetype" value="work">
 					<label class="radioBtn" for="work">Work</label><br>
 					<input class="radioBtn" type="radio" id="home" name="phonetype" value="home">
@@ -91,11 +185,12 @@
 					<span class="errorFeedback errorSpan phoneTypeErr" id="phonetypeError">Please choose one option!</span><br>
 
 					<!--submit-->
-					<input type="submit" name="Sbt" id="Sbt" value="SUBMIT">
+					<input type="submit" name="Sbt" id="Sbt" value="Register">
 
 				</fieldset>
 			</div>
 		</form>
+		</div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 

@@ -1,20 +1,98 @@
 <?php
 
 	require_once("functions.php");
-	/*
-	require_once("ClassUser.php");
-	$user = new User;
-	$user->logout();
-	*/
+
 ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" type="text/css" href="form.css">
 		<title>
-			Login
+			Login form
 		</title>
+			<style type="text/css">
+				body{
+					font-family: tahoma, sans-serif;
+				}
+
+				.redd{
+					color: #ff0000;
+				}
+
+				h3{
+					color: #009900;
+				}
+				
+				form label{
+					margin-left: 10px;
+					float: left;
+					text-align: right;
+					display: block;
+					color: #009900;
+				}
+				
+				form input{
+					width: 60%;
+					margin-left: 10px;
+				}
+
+				form input[type=submit]{
+					width: 20%;
+					margin-left: 10px;
+					border-radius: 4px;
+					-webkit-border-radius:4px;
+					color: #fff;
+					font-weight: bold;
+					background-color: #3333cc;
+					cursor: pointer;
+					border: 0;
+					height: 34px;
+					text-align: center;
+				}
+
+				form #formLinks{
+					margin-left: 10px;
+				}
+				
+				form #formLinks a{
+					text-decoration: none;
+				}
+
+				form select option{
+					width: 6em;
+				}
+				
+				#submit{
+					margin-top: 2em;
+					float: right;
+				}
+				
+				.errorClass{
+					background-color: #CC6666;
+				}
+
+				#formDiv{
+					margin: 24px;
+					width: 60%;
+					clear: both;
+				}
+				
+				#errorDiv{
+					color: #ff0000;
+					padding: 12px;
+					margin: 10px;
+				}
+				
+				.errorFeedback{
+					visibility: hidden;
+				}
+				
+				.phoneTypeError{
+					margin-left: 1.2em;
+					padding: 0.1em;
+					background-color: #CC6666;
+				}
+			</style>
 	</head>
 	<body>
 		<div id="errorDiv" class="redd">
@@ -33,27 +111,29 @@
 			?>			
 		</div>
 
-		<div>
+		<div id="formDiv">
 			<form id="loginForm" method="POST" action="login-process.php">
 					<fieldset>
 						<legend>
 							Login
 						</legend>
 						<!--email input-->
-						<label for="email">Email:*</label>
+						<p><label for="email">Email:<span class="redd">*</span></label></p><br>
 						<input type="email" id="Email" name="Email">
 						<span class="errorFeedback errorSpan" id="emailError">Email is required!</span><br>
 						<!--password input-->
-						<label for="password">Password:*</label>
+						<p><label for="password">Password:<span class="redd">*</span></label></p><br>
 						<input type="password" id="Password" name="Password">
 						<span class="errorFeedback errorSpan" id="passError">Password is required!</span>
 						<br>
 						<br>
 						<!--submit-->
-						<input type="submit" name="Sbt" id="Sbt" value="SUBMIT">
+						<input type="submit" name="Sbt" id="Sbt" value="Login">
 						<br>
+						<p id="formLinks">
 						<a href="register.php">Register</a><br>
 						<a href="emailpass.php">Forgot Your password?</a>
+						</p>
 					</fieldset>
 			</form>
 		</div>

@@ -1,1 +1,6 @@
-<h1>Your query is fucked up!</h1>
+<!DOCTYPE html>
+<html>
+	<body>
+		<h1>Your query is bad!</h1>
+	</body>
+</html>

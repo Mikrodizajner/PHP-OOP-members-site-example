@@ -1,5 +1,12 @@
 <?php
-
+/**
+*php member site example
+*author: https://www.linkedin.com/in/darko-borojevi%C4%87-54b03135/
+*object oriented php5.6. plus procedural php
+*
+*login
+*
+**/
 	require_once("functions.php");
 
 ?>
@@ -104,7 +111,7 @@
 	<body>
 		<div id="errorDiv" class="redd">
 			<?php
-				if (isset($_SESSION['error']) && isset($_SESSION['formAttempt'])) {
+				if (isset($_SESSION['error']) && $_SESSION['error'] != "") {
 
 					unset($_SESSION['formAttempt']);
 

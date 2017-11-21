@@ -7,8 +7,7 @@
 *authenticate user
 *
 */
-require_once("functions.php");
-require_once("ClassUser.php");			
+require_once("functions.php");		
 
 if (isset($_COOKIE['kookie']) && $_SESSION['isLoggedIn'] == true) {
 

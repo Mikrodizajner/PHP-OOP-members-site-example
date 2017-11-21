@@ -34,6 +34,15 @@
 			Reset page
 		</title>
 		<link rel="stylesheet" type="text/css" href="form.css">
+	<style type="text/css">
+		body{
+			font-family: tahoma, sans-serif;
+		}
+
+		h3{
+			color: #009900;
+		}
+	</style>
 	</head>
 	<body>
 		<div>

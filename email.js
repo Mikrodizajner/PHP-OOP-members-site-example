@@ -1,12 +1,12 @@
-/*
-*php member site example
-*author: https://www.linkedin.com/in/darko-borojevi%C4%87-54b03135/
-*object oriented php5.6. plus procedural php
-*
-*js validation
-*
-*/
 $(document).ready(function(){
+	/*
+	*php member site example
+	*author: https://www.linkedin.com/in/darko-borojevi%C4%87-54b03135/
+	*object oriented php5.6. plus procedural php
+	*
+	*js validation
+	*
+	*/
 	$('#loginForm').submit(function(e){
 		removeFeedback();
 		var errors = validateForm();

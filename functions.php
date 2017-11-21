@@ -3,8 +3,8 @@
 	session_start();
 	ob_start();
 	require_once("resources/dbstuff.inc");
-
+	//automate register classes
 	spl_autoload_register(function ($class) {
-	    include 'classes/' . $class . '.class.php';
+	    include 'classes/' . $class . '.php';
 	});
 ?>

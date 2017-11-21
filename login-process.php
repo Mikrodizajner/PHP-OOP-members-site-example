@@ -9,7 +9,6 @@
 **/
 
 require_once('functions.php');
-require_once('ClassUser.php');
 
 //prevent access if if the form was not submitted
 if (!isset($_POST['Sbt'])) {

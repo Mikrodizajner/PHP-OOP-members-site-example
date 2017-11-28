@@ -7,7 +7,7 @@
 *login
 *
 **/
-	require_once("functions.php");
+require_once("functions.php");
 
 ?>
 <!DOCTYPE html>
@@ -20,6 +20,8 @@
 			<style type="text/css">
 				body{
 					font-family: tahoma, sans-serif;
+					margin: 0px;
+					padding: 0;
 				}
 
 				.redd{

@@ -6,8 +6,8 @@
 *
 *email proccess
 *
-*/
-require_once("functions.inc");
+**/
+require_once("functions.php");
 
 //prevent access if form was not submitted
 if (!isset($_POST['sbmt'])) {

@@ -1,1 +1,1 @@
-This is a barebones member site example with a register-login form and a password recovery script that can be used as a starter file for larger projects. Please note that I didn't use namespaces since there's just to few classes here.
+Barebones member site example with a User class defined, register-login form and a password recovery script that can be used as a starter template.

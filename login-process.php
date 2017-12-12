@@ -1,12 +1,12 @@
 <?php
-/**
+/*
 *php member site example
-*author: https://www.linkedin.com/in/darko-borojevi%C4%87-54b03135/
-*object oriented php5.6. plus procedural php
+*
+*
 *
 *login process
 *
-**/
+*/
 
 require_once('functions.php');
 
@@ -63,7 +63,8 @@ if (count($_SESSION['error']) > 0) {
 		header("Location:authenticated.php");
 
 	}else{
-		$_SESSION['error'][] = 'There was a problem with your username or password! If You are not registered please <a href="register.php">register</a> ASAP!';
+		$_SESSION['error'][] = 'There was a problem with your username or password! 
+		If You are not registered please <a href="register.php">register</a> ASAP!';
 		die(header("Location:login.php"));
 	}
 }

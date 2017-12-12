@@ -1,12 +1,12 @@
 <?php
 /*
 *php member site example
-*author: https://www.linkedin.com/in/darko-borojevi%C4%87-54b03135/
-*object oriented php5.6. plus procedural php
 *
-*email proccess
 *
-**/
+*
+*email proccess file
+*
+*/
 require_once("functions.php");
 
 //prevent access if form was not submitted

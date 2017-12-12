@@ -1,8 +1,8 @@
 <?php
 /*
 *php member site example
-*author: https://www.linkedin.com/in/darko-borojevi%C4%87-54b03135/
-*object oriented php5.6. plus procedural php
+*
+*
 *
 *user class
 *
@@ -235,7 +235,7 @@
 		}//end function validate reset
 
 
-		private function _resetPass($id,$pass){
+		private function resetPass($id,$pass){
 
 			$mysqli = new mysqli(DBHOST,DBUSER,DBPASS,DB);
 

@@ -1,3 +1,6 @@
+<!--
+*404 error file
+-->
 <!DOCTYPE html>
 <html>
 	<body>

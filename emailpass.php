@@ -1,7 +1,7 @@
 <!--
 *php member site example
-*author: https://www.linkedin.com/in/darko-borojevi%C4%87-54b03135/
-*object oriented php5.6. plus procedural php
+*
+*
 *
 *emailpass
 *
@@ -135,8 +135,16 @@
 							}//end if isset
 						?>
 					</div>
-					<p><label for="email">Enter Your E-mail: <span class="redd">*</span></label></p><br>
+					<p>
+						<label for="email">Enter Your E-mail: <span class="redd">*</span></label>
+					</p>
+					<br>
 					<input type="text" id="email" name="email"><br>
+					<p>
+						<label for="password">Enter Your new Password: <span class="redd">*</span></label>
+					</p>
+					<br>
+					<input type="text" id="pswd2" name="pswd2"><br>
 					<span class="errorFeedback errorSpan" id="emailError">E-mail is required!</span><br>
 					<input type="submit" id="sbmt" name="sbmt" value="Submit"><br>
 					<p id="formLinks">
